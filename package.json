@@ -1,6 +1,6 @@
 {
   "name": "@tobes31415/basic-observables",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight implementation of the Observable pattern",
   "main": "lib/obs-commonjs.min.js",
   "module": "lib/index.js",
@@ -79,6 +79,6 @@
     "uglify-es": "^3.3.9"
   },
   "dependencies": {
-    "@tobes31415/dispose": "^2.0.5"
+    "@tobes31415/dispose": "^3.0.0"
   }
 }
