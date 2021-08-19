@@ -1,7 +1,8 @@
 
-import { Observable, Observer, Subscription, Operator } from './types';
+import { Observable, Observer, Subscription, Operator, EventHandler, Action } from './types';
 import { LightweightSubscription } from './subscription';
 import * as gc from "@tobes31415/dispose";
+import { makeFull } from './util';
 
 interface CallbackMap<T> {
     subscription: Subscription;
@@ -17,9 +18,25 @@ export class Subject<T> implements Observable<T> {
     /**
      * Subscribes to the event stream
      */
-    subscribe(observer: Observer<T>): Subscription {
+    subscribe(next: EventHandler<T>, error?: EventHandler<any>, complete?: EventHandler<void>): Subscription;
+    /**
+     * Subscribes to the event stream
+     */
+    subscribe(observer: Partial<Observer<T>>): Subscription;
+    subscribe(...args: any[]): Subscription {
+        if (typeof args[0] === "function") {
+            return this.subscribeToObserver({ next: args[0], error: args[1], complete: args[2] });
+        } else {
+            return this.subscribeToObserver(args[0]);
+        }
+    }
+
+    /**
+     * Subscribes to the event stream
+     */
+    private subscribeToObserver(observer: Partial<Observer<T>>): Subscription {
         const subscription = new LightweightSubscription();
-        const cbMap = { subscription, observer };
+        const cbMap = { subscription, observer: makeFull(observer) };
         this.callbacks.push(cbMap);
 
         gc.onDispose(cbMap, () => {

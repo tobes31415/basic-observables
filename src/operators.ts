@@ -5,7 +5,7 @@ import * as gc from "@tobes31415/dispose";
 /**
  * A standard base for creating operators so that they all behave consistently
  */
-function operatorBase<TIn, TOut, State>(nextFn: (observer: Observer<TOut>, value: TIn, state: State) => void, initialState?: State) {
+function operatorBase<TIn, TOut, State = any>(nextFn: (observer: Observer<TOut>, value: TIn, state: State) => void, initialState?: State) {
     let state = initialState;
     return (observable: Observable<TIn>) => {
         const result = new LightweightObservable<TOut>(observer => {
@@ -34,7 +34,7 @@ export function create<T>(fn: (observer: Observer<T>) => void | (() => void) | (
  * Creates a new Observable using an array
  */
 export function from<T>(values: T[]): Observable<T> {
-    return new LightweightObservable(subscriber => {
+    return new LightweightObservable<T>(subscriber => {
         values.forEach(value => subscriber.next(value));
         subscriber.complete();
     });
@@ -51,21 +51,21 @@ export function of<T>(...values: T[]): Observable<T> {
  * Maps the values of an event stream
  */
 export function map<TIn, TOut>(mapFn: (value: TIn) => TOut): Operator<TIn, TOut> {
-    return operatorBase((observer, value) => observer.next(mapFn(value)));
+    return operatorBase<TIn, TOut>((observer, value) => observer.next(mapFn(value)));
 }
 
 /**
  * Filters an event stream
  */
 export function filter<T>(filterFn: (value: T) => boolean): Operator<T, T> {
-    return operatorBase((observer, value) => { if (filterFn(value)) { observer.next(value); } });
+    return operatorBase<T, T>((observer, value) => { if (filterFn(value)) { observer.next(value); } });
 }
 
 /**
  * Scans an event stream and produces interim values
  */
 export function scan<TIn, TOut>(scanFn: (acc: TOut | undefined, value: TIn) => TOut, initialValue?: TOut): Operator<TIn, TOut> {
-    return operatorBase((observer, value, state) => {
+    return operatorBase<TIn, TOut, { currentValue: TOut | undefined }>((observer, value, state) => {
         state.currentValue = scanFn(state.currentValue, value);
         observer.next(state.currentValue);
     }, { currentValue: initialValue });
@@ -78,7 +78,7 @@ export function take<T>(take: number): Operator<T, T> {
     if (take < 1) {
         return () => from<T>([]);
     }
-    return operatorBase((observer, value, state) => {
+    return operatorBase<T, T, { count: number }>((observer, value, state) => {
         observer.next(value);
         state.count++;
         if (state.count >= take) {
@@ -91,7 +91,7 @@ export function take<T>(take: number): Operator<T, T> {
  * Skips the first 'n' values of an event stream.
  */
 export function skip<T>(skip: number): Operator<T, T> {
-    return operatorBase((observer, value, state) => {
+    return operatorBase<T, T, { count: number }>((observer, value, state) => {
         if (state.count >= skip) {
             observer.next(value);
         }

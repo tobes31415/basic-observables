@@ -16,6 +16,8 @@
 
 ### Type aliases
 
+- [Action](modules.md#action)
+- [EventHandler](modules.md#eventhandler)
 - [Operator](modules.md#operator)
 
 ### Functions
@@ -30,6 +32,58 @@
 - [take](modules.md#take)
 
 ## Type aliases
+
+### Action
+
+Ƭ **Action**: () => `void` \| `Promise`<`void`\>
+
+#### Type declaration
+
+▸ (): `void` \| `Promise`<`void`\>
+
+Callback function that doesn't accept or return anything
+
+##### Returns
+
+`void` \| `Promise`<`void`\>
+
+#### Defined in
+
+[types.ts:60](https://github.com/tobes31415/basic-observables/blob/61a3967/src/types.ts#L60)
+
+___
+
+### EventHandler
+
+Ƭ **EventHandler**<`T`\>: (`value`: `T`) => `void` \| `Promise`<`void`\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Type declaration
+
+▸ (`value`): `void` \| `Promise`<`void`\>
+
+Callback function that accepts a value and doesn't return anything
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `T` |
+
+##### Returns
+
+`void` \| `Promise`<`void`\>
+
+#### Defined in
+
+[types.ts:55](https://github.com/tobes31415/basic-observables/blob/61a3967/src/types.ts#L55)
+
+___
 
 ### Operator
 
@@ -60,7 +114,7 @@ A function which can be chained to modify a stream of events
 
 #### Defined in
 
-types.ts:46
+[types.ts:50](https://github.com/tobes31415/basic-observables/blob/61a3967/src/types.ts#L50)
 
 ## Functions
 
@@ -88,7 +142,7 @@ Creates a new Observable using a generator function
 
 #### Defined in
 
-operators.ts:29
+[operators.ts:29](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L29)
 
 ___
 
@@ -116,7 +170,7 @@ Filters an event stream
 
 #### Defined in
 
-operators.ts:60
+[operators.ts:60](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L60)
 
 ___
 
@@ -144,7 +198,7 @@ Creates a new Observable using an array
 
 #### Defined in
 
-operators.ts:36
+[operators.ts:36](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L36)
 
 ___
 
@@ -173,7 +227,7 @@ Maps the values of an event stream
 
 #### Defined in
 
-operators.ts:53
+[operators.ts:53](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L53)
 
 ___
 
@@ -201,7 +255,7 @@ Creates a new Observable using a list of values
 
 #### Defined in
 
-operators.ts:46
+[operators.ts:46](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L46)
 
 ___
 
@@ -231,7 +285,7 @@ Scans an event stream and produces interim values
 
 #### Defined in
 
-operators.ts:67
+[operators.ts:67](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L67)
 
 ___
 
@@ -259,7 +313,7 @@ Skips the first 'n' values of an event stream.
 
 #### Defined in
 
-operators.ts:93
+[operators.ts:93](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L93)
 
 ___
 
@@ -287,4 +341,4 @@ Takes the first 'n' values of an event stream then completes.
 
 #### Defined in
 
-operators.ts:77
+[operators.ts:77](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L77)

@@ -5,7 +5,11 @@ export interface Observable<T> {
     /**
      * Subscribes to the event stream
      */
-    subscribe(observer: Observer<T>): Subscription;
+    subscribe(observer: Partial<Observer<T>>): Subscription;
+    /**
+     * Subscribes to the event stream
+     */
+    subscribe(next: EventHandler<T>, error?: EventHandler<any>, complete?: Action);
     /**
      * Creates a new observable that applies the listed transformations to the event stream
      */
@@ -44,3 +48,13 @@ export interface Observer<T> {
  * A function which can be chained to modify a stream of events
  */
 export type Operator<TIn, TOut> = (observable: Observable<TIn>) => Observable<TOut>;
+
+/**
+ * Callback function that accepts a value and doesn't return anything
+ */
+export type EventHandler<T> = (value: T) => void | Promise<void>;
+
+/**
+ * Callback function that doesn't accept or return anything
+ */
+export type Action = () => void | Promise<void>;

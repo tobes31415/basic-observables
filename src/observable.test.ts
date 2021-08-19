@@ -4,7 +4,7 @@ import { LightweightObservable } from './observable';
 describe("Observable", () => {
     test("notifies of errors", () => {
         const obs = new LightweightObservable(subscriber => {
-            subscriber.error("Something failed");
+            subscriber.error!("Something failed");
         });
 
         const result: any[] = [];

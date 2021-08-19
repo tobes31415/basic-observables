@@ -28,6 +28,19 @@ describe("Operators", () => {
 
             expect(result).toEqual([1, 2, 3, 0]);
         });
+        test("Can subscribe with functions", () => {
+            const obs = of(1, 2, 3)
+
+            const result: any[] = [];
+            obs.subscribe(
+                v => { result.push(v) },
+                (reason) => { result.push(reason) },
+                () => { result.push(0) }
+            );
+
+            expect(result).toEqual([1, 2, 3, 0]);
+        });
+
     });
     describe("map", () => {
         test("changes values", () => {
