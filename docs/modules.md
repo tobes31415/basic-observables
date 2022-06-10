@@ -49,7 +49,7 @@ Callback function that doesn't accept or return anything
 
 #### Defined in
 
-[types.ts:60](https://github.com/tobes31415/basic-observables/blob/61a3967/src/types.ts#L60)
+[types.ts:60](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/types.ts#L60)
 
 ___
 
@@ -81,7 +81,7 @@ Callback function that accepts a value and doesn't return anything
 
 #### Defined in
 
-[types.ts:55](https://github.com/tobes31415/basic-observables/blob/61a3967/src/types.ts#L55)
+[types.ts:55](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/types.ts#L55)
 
 ___
 
@@ -114,7 +114,7 @@ A function which can be chained to modify a stream of events
 
 #### Defined in
 
-[types.ts:50](https://github.com/tobes31415/basic-observables/blob/61a3967/src/types.ts#L50)
+[types.ts:50](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/types.ts#L50)
 
 ## Functions
 
@@ -142,7 +142,7 @@ Creates a new Observable using a generator function
 
 #### Defined in
 
-[operators.ts:29](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L29)
+[operators.ts:29](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L29)
 
 ___
 
@@ -170,7 +170,7 @@ Filters an event stream
 
 #### Defined in
 
-[operators.ts:60](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L60)
+[operators.ts:60](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L60)
 
 ___
 
@@ -198,7 +198,7 @@ Creates a new Observable using an array
 
 #### Defined in
 
-[operators.ts:36](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L36)
+[operators.ts:36](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L36)
 
 ___
 
@@ -227,7 +227,7 @@ Maps the values of an event stream
 
 #### Defined in
 
-[operators.ts:53](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L53)
+[operators.ts:53](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L53)
 
 ___
 
@@ -255,7 +255,7 @@ Creates a new Observable using a list of values
 
 #### Defined in
 
-[operators.ts:46](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L46)
+[operators.ts:46](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L46)
 
 ___
 
@@ -285,7 +285,7 @@ Scans an event stream and produces interim values
 
 #### Defined in
 
-[operators.ts:67](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L67)
+[operators.ts:67](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L67)
 
 ___
 
@@ -313,7 +313,7 @@ Skips the first 'n' values of an event stream.
 
 #### Defined in
 
-[operators.ts:93](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L93)
+[operators.ts:93](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L93)
 
 ___
 
@@ -341,4 +341,4 @@ Takes the first 'n' values of an event stream then completes.
 
 #### Defined in
 
-[operators.ts:77](https://github.com/tobes31415/basic-observables/blob/61a3967/src/operators.ts#L77)
+[operators.ts:77](https://github.com/tobes31415/basic-observables/blob/e027d9d/src/operators.ts#L77)

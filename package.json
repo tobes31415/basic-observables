@@ -1,6 +1,6 @@
 {
   "name": "@tobes31415/basic-observables",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight implementation of the Observable pattern",
   "main": "lib/obs-commonjs.min.js",
   "module": "lib/index.js",
@@ -25,7 +25,7 @@
     "build:remove-tests": "del-cli lib/*test*",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "bundle-cjs": "esbuild src/index.ts --external:rxjs --minify --format=cjs --bundle --outfile=lib/obs-commonjs.min.js",
-    "bundle-esm": "esbuild src/*.ts --format=esm --outdir=lib",
+    "bundle-esm": "esbuild src/index.ts src/observable.ts src/operators.ts src/subject.ts src/subscriber.ts src/subscription.ts src/types.ts src/util.ts --format=esm --outdir=lib",
     "flowgen": "run-p flowgen:*",
     "flowgen:obs": "flowgen flow/obs.d.ts -o lib/obs-commonjs.min.js.flow",
     "flowgen:rxjs": "flowgen flow/obs-rxjs.d.ts -o lib/obs-rxjs.js.flow",
@@ -79,6 +79,6 @@
     "uglify-es": "^3.3.9"
   },
   "dependencies": {
-    "@tobes31415/dispose": "^3.0.0"
+    "@tobes31415/dispose": "^4.0.3"
   }
 }
