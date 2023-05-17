@@ -59,6 +59,7 @@ export class Subject<T> implements Observable<T> {
     gc.onDisposeChain(this, cbMap);
     gc.onDisposeChain(observer, cbMap);
     gc.onDisposeChain(cbMap, subscription);
+    gc.onDisposeChain(subscription, cbMap);
     return subscription;
   }
   /**
