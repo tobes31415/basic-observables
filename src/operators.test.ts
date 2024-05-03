@@ -1,9 +1,10 @@
+/* eslint @typescript-eslint/no-unused-vars: 0 */
 import { from, of, map, filter, scan, take, skip } from "./operators";
-import expect from "expect.js";
+import { describe, test, expect } from "vitest";
 
 describe("Operators", () => {
   describe("from", () => {
-    it("emits values", () => {
+    test("emits values", () => {
       const obs = from([1, 2, 3]);
 
       const result: number[] = [];
@@ -19,7 +20,7 @@ describe("Operators", () => {
     });
   });
   describe("of", () => {
-    it("emits values", () => {
+    test("emits values", () => {
       const obs = of(1, 2, 3);
 
       const result: number[] = [];
@@ -33,7 +34,7 @@ describe("Operators", () => {
 
       expect(result).to.eql([1, 2, 3, 0]);
     });
-    it("Can subscribe with functions", () => {
+    test("Can subscribe with functions", () => {
       const obs = of(1, 2, 3);
 
       const result: any[] = [];
@@ -53,7 +54,7 @@ describe("Operators", () => {
     });
   });
   describe("map", () => {
-    it("changes values", () => {
+    test("changes values", () => {
       const obs = of(1, 2, 3).pipe(map((v) => v * 2));
 
       const result: number[] = [];
@@ -69,7 +70,7 @@ describe("Operators", () => {
     });
   });
   describe("filter", () => {
-    it("filters values", () => {
+    test("filters values", () => {
       const obs = of(1, 2, 3, 4, 5, 6).pipe(filter((v) => v % 2 === 0));
 
       const result: number[] = [];
@@ -85,7 +86,7 @@ describe("Operators", () => {
     });
   });
   describe("scan", () => {
-    it("scans values", () => {
+    test("scans values", () => {
       const obs = of(1, 2, 3, 4, 5, 6).pipe(scan((acc, v) => acc + v, 0));
 
       const result: number[] = [];
@@ -101,7 +102,7 @@ describe("Operators", () => {
     });
   });
   describe("take", () => {
-    it("takes n values", () => {
+    test("takes n values", () => {
       const obs = of(1, 2, 3, 4, 5, 6).pipe(take(4));
 
       const result: number[] = [];
@@ -117,7 +118,7 @@ describe("Operators", () => {
     });
   });
   describe("skip", () => {
-    it("skips values", () => {
+    test("skips values", () => {
       const obs = of(1, 2, 3, 4, 5, 6).pipe(skip(2));
 
       const result: number[] = [];

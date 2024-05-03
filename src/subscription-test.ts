@@ -1,9 +1,9 @@
+/* eslint @typescript-eslint/no-unused-vars: 0 */
 import { Subject } from "./subject";
-import { map } from "./operators";
-import expect from "expect.js";
+import { describe, test, expect } from "vitest";
 
 describe("subject", () => {
-  it("Unsubscribe Stops new messages", () => {
+  test("Unsubscribe Stops new messages", () => {
     const sub = new Subject<number>();
 
     const result: number[] = [];

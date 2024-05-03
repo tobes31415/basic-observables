@@ -1,3 +1,7 @@
+**@tobes31415/basic-observables** • [**Docs**](globals.md)
+
+***
+
 # Basic-Observables
 
 A lightweight implementation of the observable pattern.

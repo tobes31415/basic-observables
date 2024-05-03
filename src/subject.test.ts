@@ -1,9 +1,10 @@
+/* eslint @typescript-eslint/no-unused-vars: 0 */
 import { Subject } from "./subject";
 import { map } from "./operators";
-import expect from "expect.js";
+import { describe, test, expect } from "vitest";
 
 describe("subject", () => {
-  it("Emits events", () => {
+  test("Emits events", () => {
     const sub = new Subject<number>();
 
     const result: number[] = [];
@@ -22,7 +23,7 @@ describe("subject", () => {
     expect(result).to.eql([123, 0]);
   });
 
-  it("Emits errors", () => {
+  test("Emits errors", () => {
     const sub = new Subject<number>();
 
     const result: number[] = [];
@@ -41,7 +42,7 @@ describe("subject", () => {
     expect(result).to.eql([123, "fake error"]);
   });
 
-  it("Is Pipeable", () => {
+  test("Is Pipeable", () => {
     const sub = new Subject<number>();
     const obs = sub.pipe(map((v) => v * 2));
 

@@ -1,8 +1,8 @@
 import { LightweightObservable } from "./observable";
-import expect from "expect.js";
+import { describe, test, expect } from "vitest";
 
 describe("Observable", () => {
-  it("notifies of errors", () => {
+  test("notifies of errors", () => {
     const obs = new LightweightObservable((subscriber) => {
       subscriber.error!("Something failed");
     });
